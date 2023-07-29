@@ -1,9 +1,36 @@
 using System.Xml.Linq;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddHttpClient();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(
+    options =>
+{
+    options.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Version = "v1.0.0",
+        Title = "Dolar API",
+        Description = "Minimal Web API hecha con ASP.NET Core para consultar valores económicos en Argentina (Dolar, Reservas, Riesgo País, etc).  \n Los datos son obtenidos de [DolarSi](https://www.dolarsi.com/)",
+        Contact = new OpenApiContact
+        {
+            Name = "Angelo Padron",
+            Url = new Uri("mailto:padron891@gmail.com?subject=Dolar API")
+        },
+        License = new OpenApiLicense
+        {
+            Name = "GNU GPLv3",
+            Url = new Uri("https://www.gnu.org/licenses/gpl-3.0.en.html")
+        }
+
+    }
+    );
+}
+);
 
 var app = builder.Build();
+
+app.UseSwagger();
 
 const string CotizacionesUrl = "https://www.dolarsi.com/api/dolarSiInfo.xml";
 
@@ -203,13 +230,13 @@ static async Task<IResult> GetRiesgoPais(HttpClient http, string cotizacionesUrl
         return TypedResults.Ok(new
         {
             Nombre = riesgoPais.Element("nombre")?.Value,
-            Valor = riesgoPais.Element("compra")?.Value,
+            Puntos = riesgoPais.Element("compra")?.Value,
             Variacion = riesgoPais.Element("venta")?.Value,
             MejorCompra = riesgoPais.Element("mejor_compra")?.Value,
             MejorVenta = riesgoPais.Element("mejor_venta")?.Value,
             Actualizado = $"{actualizacion?.Element("fecha")?.Value} {actualizacion?.Element("hora")?.Value}"
         });
-    
+
     }
     catch (HttpRequestException)
     {
@@ -229,7 +256,7 @@ agro.MapGet("/soja_chicago", (HttpClient httpClient) => GetAgro(httpClient, Coti
 
 static async Task<IResult> GetAgro(HttpClient http, string cotizacionesUrl, string nombreCotizacion)
 {
-    try 
+    try
     {
         HttpResponseMessage responseMessage = await http.GetAsync(CotizacionesUrl);
         responseMessage.EnsureSuccessStatusCode();
@@ -344,5 +371,7 @@ static async Task<IResult> GetMetales(HttpClient http, string cotizacionesUrl, s
         return TypedResults.StatusCode(503);
     }
 }
+
+app.UseSwaggerUI();
 
 app.Run();
