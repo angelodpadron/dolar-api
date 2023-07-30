@@ -59,6 +59,22 @@ dolar.MapGet("/oficial/banco_supervielle", (HttpClient httpClient) => GetValorDo
 dolar.MapGet("/oficial/banco_patagonia", (HttpClient httpClient) => GetValorDolarOficialBanco(httpClient, CotizacionesUrl, "Banco Patagonia"));
 dolar.MapGet("/oficial/banco_itau", (HttpClient httpClient) => GetValorDolarOficialBanco(httpClient, CotizacionesUrl, "Banco Itaú Argentina S.A."));
 dolar.MapGet("/oficial/banco_icbc", (HttpClient httpClient) => GetValorDolarOficialBanco(httpClient, CotizacionesUrl, "Industrial and Commercial Bank of China "));
+dolar.MapGet("/oficial/banco_piano", (HttpClient httpClient) => GetValorDolarOficialBanco(httpClient, CotizacionesUrl, "Banco Piano"));
+dolar.MapGet("/oficial/nuevo_banco_del_chaco", (HttpClient httpClient) => GetValorDolarOficialBanco(httpClient, CotizacionesUrl, "Nuevo Banco del Chaco"));
+dolar.MapGet("/oficial/banco_de_la_pampa", (HttpClient httpClient) => GetValorDolarOficialBanco(httpClient, CotizacionesUrl, "Banco de la Pampa"));
+dolar.MapGet("/oficial/banco_roela", (HttpClient httpClient) => GetValorDolarOficialBanco(httpClient, CotizacionesUrl, "Banco Roela"));
+dolar.MapGet("/oficial/banco_de_cordoba", (HttpClient httpClient) => GetValorDolarOficialBanco(httpClient, CotizacionesUrl, "Banco de Córdoba"));
+dolar.MapGet("oficial/banco_ciudad_buenos_aires", (HttpClient httpClient) => GetValorDolarOficialBanco(httpClient, CotizacionesUrl, "Banco de la Ciudad de Buenos Aires"));
+dolar.MapGet("oficial/banco_provincia_buenos_aires", (HttpClient httpClient) => GetValorDolarOficialBanco(httpClient, CotizacionesUrl, "Banco de la Provincia de Buenos Aires"));
+dolar.MapGet("oficial/banco_de_formosa", (HttpClient httpClient) => GetValorDolarOficialBanco(httpClient, CotizacionesUrl, "Banco de Formosa S.A."));
+dolar.MapGet("oficial/banco_del_chubut", (HttpClient httpClient) => GetValorDolarOficialBanco(httpClient, CotizacionesUrl, "Banco del Chubut S.A."));
+dolar.MapGet("oficial/banco_provincia_tierra_del_fuego", (HttpClient httpClient) => GetValorDolarOficialBanco(httpClient, CotizacionesUrl, "Banco de Tierra del Fuego"));
+dolar.MapGet("oficial/banco_provincia_de_neuquen", (HttpClient httpClient) => GetValorDolarOficialBanco(httpClient, CotizacionesUrl, "Banco Provincia de Neuquén S.A."));
+dolar.MapGet("oficial/banco_rioja_sau", (HttpClient httpClient) => GetValorDolarOficialBanco(httpClient, CotizacionesUrl, "Banco Rioja Sociedad Anónima Unipersonal"));
+dolar.MapGet("oficial/banco_bica", (HttpClient httpClient) => GetValorDolarOficialBanco(httpClient, CotizacionesUrl, "Banco Bica S.A."));
+dolar.MapGet("oficial/banco_julio", (HttpClient httpClient) => GetValorDolarOficialBanco(httpClient, CotizacionesUrl, "Banco Julio S.A."));
+
+
 
 static async Task<IResult> GetValoresPrincipales(HttpClient httpClient)
 {
@@ -182,14 +198,17 @@ static async Task<IResult> GetRyC(HttpClient http, string cotizacionesUrl, strin
             .Elements()
             .FirstOrDefault(q => q.Element("nombre")?.Value.Contains(nombreCotizacion) ?? false);
 
+
         if (reservas is null) return TypedResults.NotFound();
 
+        var actualizacion = xml.Descendants("ultima").Elements().FirstOrDefault(c => c.Element("nombre")?.Value == "RESERVAS_Y_CIRCULANTE");
 
         return TypedResults.Ok(new
         {
             Nombre = reservas.Element("nombre")?.Value,
             Valor = reservas.Element("compra")?.Value,
-            Obervaciones = reservas.Element("observaciones")?.Value
+            Obervaciones = reservas.Element("observaciones")?.Value,
+            Actualizado = $"{actualizacion?.Element("fecha")?.Value} {actualizacion?.Element("hora")?.Value}"
         });
 
     }
