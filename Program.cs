@@ -64,17 +64,15 @@ dolar.MapGet("/oficial/nuevo_banco_del_chaco", (HttpClient httpClient) => GetVal
 dolar.MapGet("/oficial/banco_de_la_pampa", (HttpClient httpClient) => GetValorDolarOficialBanco(httpClient, CotizacionesUrl, "Banco de la Pampa"));
 dolar.MapGet("/oficial/banco_roela", (HttpClient httpClient) => GetValorDolarOficialBanco(httpClient, CotizacionesUrl, "Banco Roela"));
 dolar.MapGet("/oficial/banco_de_cordoba", (HttpClient httpClient) => GetValorDolarOficialBanco(httpClient, CotizacionesUrl, "Banco de Córdoba"));
-dolar.MapGet("oficial/banco_ciudad_buenos_aires", (HttpClient httpClient) => GetValorDolarOficialBanco(httpClient, CotizacionesUrl, "Banco de la Ciudad de Buenos Aires"));
-dolar.MapGet("oficial/banco_provincia_buenos_aires", (HttpClient httpClient) => GetValorDolarOficialBanco(httpClient, CotizacionesUrl, "Banco de la Provincia de Buenos Aires"));
-dolar.MapGet("oficial/banco_de_formosa", (HttpClient httpClient) => GetValorDolarOficialBanco(httpClient, CotizacionesUrl, "Banco de Formosa S.A."));
-dolar.MapGet("oficial/banco_del_chubut", (HttpClient httpClient) => GetValorDolarOficialBanco(httpClient, CotizacionesUrl, "Banco del Chubut S.A."));
-dolar.MapGet("oficial/banco_provincia_tierra_del_fuego", (HttpClient httpClient) => GetValorDolarOficialBanco(httpClient, CotizacionesUrl, "Banco de Tierra del Fuego"));
-dolar.MapGet("oficial/banco_provincia_de_neuquen", (HttpClient httpClient) => GetValorDolarOficialBanco(httpClient, CotizacionesUrl, "Banco Provincia de Neuquén S.A."));
-dolar.MapGet("oficial/banco_rioja_sau", (HttpClient httpClient) => GetValorDolarOficialBanco(httpClient, CotizacionesUrl, "Banco Rioja Sociedad Anónima Unipersonal"));
-dolar.MapGet("oficial/banco_bica", (HttpClient httpClient) => GetValorDolarOficialBanco(httpClient, CotizacionesUrl, "Banco Bica S.A."));
-dolar.MapGet("oficial/banco_julio", (HttpClient httpClient) => GetValorDolarOficialBanco(httpClient, CotizacionesUrl, "Banco Julio S.A."));
-
-
+dolar.MapGet("/oficial/banco_ciudad_buenos_aires", (HttpClient httpClient) => GetValorDolarOficialBanco(httpClient, CotizacionesUrl, "Banco de la Ciudad de Buenos Aires"));
+dolar.MapGet("/oficial/banco_provincia_buenos_aires", (HttpClient httpClient) => GetValorDolarOficialBanco(httpClient, CotizacionesUrl, "Banco de la Provincia de Buenos Aires"));
+dolar.MapGet("/oficial/banco_de_formosa", (HttpClient httpClient) => GetValorDolarOficialBanco(httpClient, CotizacionesUrl, "Banco de Formosa S.A."));
+dolar.MapGet("/oficial/banco_del_chubut", (HttpClient httpClient) => GetValorDolarOficialBanco(httpClient, CotizacionesUrl, "Banco del Chubut S.A."));
+dolar.MapGet("/oficial/banco_provincia_tierra_del_fuego", (HttpClient httpClient) => GetValorDolarOficialBanco(httpClient, CotizacionesUrl, "Banco de Tierra del Fuego"));
+dolar.MapGet("/oficial/banco_provincia_de_neuquen", (HttpClient httpClient) => GetValorDolarOficialBanco(httpClient, CotizacionesUrl, "Banco Provincia de Neuquén S.A."));
+dolar.MapGet("/oficial/banco_rioja_sau", (HttpClient httpClient) => GetValorDolarOficialBanco(httpClient, CotizacionesUrl, "Banco Rioja Sociedad Anónima Unipersonal"));
+dolar.MapGet("/oficial/banco_bica", (HttpClient httpClient) => GetValorDolarOficialBanco(httpClient, CotizacionesUrl, "Banco Bica S.A."));
+dolar.MapGet("/oficial/banco_julio", (HttpClient httpClient) => GetValorDolarOficialBanco(httpClient, CotizacionesUrl, "Banco Julio S.A."));
 
 static async Task<IResult> GetValoresPrincipales(HttpClient httpClient)
 {
