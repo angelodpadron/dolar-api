@@ -1,7 +1,12 @@
 using System.Text.Json;
 using Microsoft.OpenApi.Models;
+using DolarApi.Utils;
 
 var builder = WebApplication.CreateBuilder(args);
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8081";
+
+builder.WebHost.UseUrls($"http://*:{port}");
+
 builder.Services.AddHttpClient();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>

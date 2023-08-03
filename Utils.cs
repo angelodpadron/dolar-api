@@ -1,4 +1,5 @@
 using System.Xml.Linq;
+namespace DolarApi.Utils;
 
 public static class Utils
 {
