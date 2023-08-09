@@ -1,57 +1,186 @@
 {
-  "Bancos": {
-    "Banco Nación": "banco_nacion",
-    "Banco Hipotecario": "banco_hipotecario",
-    "Banco BBVA": "banco_bbva",
-    "Banco Galicia": "banco_galicia",
-    "Banco Santander": "banco_santander",
-    "Banco Supervielle": "banco_supervielle",
-    "Banco Patagonia": "banco_patagonia",
-    "Banco Itaú Argentina S.A.": "banco_itau",
-    "Industrial and Commercial Bank of China": "banco_icbc",
-    "Banco Piano": "banco_piano",
-    "Nuevo Banco del Chaco": "nuevo_banco_del_chaco",
-    "Banco de la Pampa": "banco_de_la_pampa",
-    "Banco Roela": "banco_roela",
-    "Banco de Córdoba": "banco_de_cordoba",
-    "Banco de la Ciudad de Buenos Aires": "banco_ciudad_buenos_aires",
-    "Banco de la Provincia de Buenos Aires": "banco_provincia_buenos_aires",
-    "Banco de Formosa S.A.": "banco_de_formosa",
-    "Banco del Chubut S.A.": "banco_del_chubut",
-    "Banco Provincia de Tierra del Fuego": "banco_provincia_tierra_del_fuego",
-    "Banco Provincia de Neuquén S.A.": "banco_provincia_de_neuquen",
-    "Banco Rioja Sociedad Anónima Unipersonal": "banco_rioja_sau",
-    "Banco Bica S.A.": "banco_bica",
-    "Banco Julio S.A.": "banco_julio"
-  },
-  "TipoDolar": {
-    "Dolar Oficial": "oficial",
-    "Dolar Blue": "blue",
-    "Dolar Bolsa": "bolsa",
-    "Dolar Contado con Liqui": "liqui",
-    "Dolar Turista": "turista",
-    "Dolar Soja": "soja"
-  },
-  "RiesgoPais": {
-    "Argentina": "argentina",
-    "Brasil": "brasil",
-    "Uruguay": "uruguay",
-    "Mexico": "mexico"
-  },
-  "Agro": {
-    "Trigo": "trigo",
-    "Maiz": "maiz",
-    "Soja Rosario": "soja_rosario",
-    "Soja Chicago": "soja_chicago"
-  },
-  "Energia": {
-    "WTI": "petroleo/wti",
-    "BRENT": "petroleo/brent",
-    "Gas": "gas"
-  },
-  "Metales": {
-    "Oro": "oro",
-    "Plata": "plata",
-    "Cobre": "cobre"
-  }
+  "Bancos": [
+    {
+      "nombre": "Banco Nación",
+      "endpoint": "banco_nacion"
+    },
+    {
+      "nombre": "Banco Hipotecario",
+      "endpoint": "banco_hipotecario"
+    },
+    {
+      "nombre": "Banco BBVA",
+      "endpoint": "banco_bbva"
+    },
+    {
+      "nombre": "Banco Galicia",
+      "endpoint": "banco_galicia"
+    },
+    {
+      "nombre": "Banco Santander",
+      "endpoint": "banco_santander"
+    },
+    {
+      "nombre": "Banco Supervielle",
+      "endpoint": "banco_supervielle"
+    },
+    {
+      "nombre": "Banco Patagonia",
+      "endpoint": "banco_patagonia"
+    },
+    {
+      "nombre": "Banco Itaú Argentina S.A.",
+      "endpoint": "banco_itau"
+    },
+    {
+      "nombre": "Industrial and Commercial Bank of China",
+      "endpoint": "banco_icbc"
+    },
+    {
+      "nombre": "Banco Piano",
+      "endpoint": "banco_piano"
+    },
+    {
+      "nombre": "Nuevo Banco del Chaco",
+      "endpoint": "nuevo_banco_del_chaco"
+    },
+    {
+      "nombre": "Banco de la Pampa",
+      "endpoint": "banco_de_la_pampa"
+    },
+    {
+      "nombre": "Banco Roela",
+      "endpoint": "banco_roela"
+    },
+    {
+      "nombre": "Banco de Córdoba",
+      "endpoint": "banco_de_cordoba"
+    },
+    {
+      "nombre": "Banco de la Ciudad de Buenos Aires",
+      "endpoint": "banco_ciudad_buenos_aires"
+    },
+    {
+      "nombre": "Banco de la Provincia de Buenos Aires",
+      "endpoint": "banco_provincia_buenos_aires"
+    },
+    {
+      "nombre": "Banco de Formosa S.A.",
+      "endpoint": "banco_de_formosa"
+    },
+    {
+      "nombre": "Banco del Chubut S.A.",
+      "endpoint": "banco_del_chubut"
+    },
+    {
+      "nombre": "Banco Provincia de Tierra del Fuego",
+      "endpoint": "banco_provincia_tierra_del_fuego"
+    },
+    {
+      "nombre": "Banco Provincia del Neuquén S.A.",
+      "endpoint": "banco_provincia_de_neuquen"
+    },
+    {
+      "nombre": "Banco Rioja Sociedad Anónima Unipersonal",
+      "endpoint": "banco_rioja_sau"
+    },
+    {
+      "nombre": "Banco Bica S.A.",
+      "endpoint": "banco_bica"
+    },
+    {
+      "nombre": "Banco Julio S.A.",
+      "endpoint": "banco_julio"
+    }
+  ],
+  "TipoDolar": [
+    {
+      "nombre": "Dolar Oficial",
+      "endpoint": "oficial"
+    },
+    {
+      "nombre": "Dolar Blue",
+      "endpoint": "blue"
+    },
+    {
+      "nombre": "Dolar Bolsa",
+      "endpoint": "bolsa"
+    },
+    {
+      "nombre": "Dolar Contado con Liqui",
+      "endpoint": "liqui"
+    },
+    {
+      "nombre": "Dolar Turista",
+      "endpoint": "turista"
+    },
+    {
+      "nombre": "Dolar Soja",
+      "endpoint": "soja"
+    }
+  ],
+  "RiesgoPais": [
+    {
+      "nombre": "Argentina",
+      "endpoint": "argentina"
+    },
+    {
+      "nombre": "Brasil",
+      "endpoint": "brasil"
+    },
+    {
+      "nombre": "Uruguay",
+      "endpoint": "uruguay"
+    },
+    {
+      "nombre": "México",
+      "endpoint": "mexico"
+    }
+  ],
+  "Agro": [
+    {
+      "nombre": "Trigo",
+      "endpoint": "trigo"
+    },
+    {
+      "nombre": "Maiz",
+      "endpoint": "maiz"
+    },
+    {
+      "nombre": "Soja Rosario",
+      "endpoint": "soja_rosario"
+    },
+    {
+      "nombre": "Soja Chicago",
+      "endpoint": "soja_chicago"
+    }
+  ],
+  "Energia": [
+    {
+      "nombre": "WTI",
+      "endpoint": "petroleo/wti"
+    },
+    {
+      "nombre": "BRENT",
+      "endpoint": "petroleo/brent"
+    },
+    {
+      "nombre": "Gas",
+      "endpoint": "gas"
+    }
+  ],
+  "Metales": [
+    {
+      "nombre": "Oro",
+      "endpoint": "oro"
+    },
+    {
+      "nombre": "Plata",
+      "endpoint": "plata"
+    },
+    {
+      "nombre": "Cobre",
+      "endpoint": "cobre"
+    }
+  ]
 }
